@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Ambassador Portal</title>
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="background-image"></div>
+            <div class="overlay">
+                <div class="ambassador-form">
+                    <h2>Become an Ambassador</h2>
+                    <form>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name"><br><br>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email"><br><br>
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone"><br><br>
+                        <label for="college">College Name:</label>
+                        <select id="college" name="college">
+                            <option value="null">Select College</option>
+                            <?php
+                            // fetch colleges from database or API
+                            foreach ($colleges as $college) {
+                            ?>
+                            <option value="<?php echo $college['id']; ?>"><?php echo $college['name']; ?></option>
+                            <?php } ?>
+                        </select><br><br>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="events">
+            <h2>Upcoming Events</h2>
+            <ul>
+                <?php
+                // fetch upcoming events from database or API
+                foreach ($events as $event) {
+                ?>
+                <li>
+                    <img src="<?php echo $event['image']; ?>" alt="<?php echo $event['name']; ?>">
+                    <h3><?php echo $event['name']; ?></h3>
+                    <p><?php echo $event['description']; ?></p>
+                    <p><?php echo $event['date'] . ' ' . $event['time']; ?></p>
+                </li>
+                <?php } ?>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; Copyright 2023</p>
+    </footer>
+    <script>
+        // Select all links with hash tags
+const links = document.querySelectorAll('a[href^="#"]');
+
+// Add click event listener to each link
+links.forEach((link) => {
+    link.addEventListener('click', () => {
+        // Prevent default anchor behavior
+        event.preventDefault();
+
+        // Get the target element's ID
+        const targetId = link.hash.replace('#', '');
+
+        // Scroll to the target element
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop,
+                left: targetElement.offsetLeft,
+                behavior: 'smooth'
+           
+    </script>
+</body>
+</html>
