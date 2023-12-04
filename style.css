@@ -26,12 +26,14 @@ header
 }
 header .logo
 {
+    display: flex;
     color: #fff;
     font-weight: 700;
     text-decoration: solid;
     font-size: 2em;
     text-transform: uppercase;
     letter-spacing: 2px;
+    align-items: center;
 }
 header ul
 {
