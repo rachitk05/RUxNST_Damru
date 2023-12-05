@@ -28,7 +28,7 @@ header
     z-index: 10000;
 }
 header .logo
-{   
+{
     display: flex;
     padding-left: 10px;
     color: #fff;
