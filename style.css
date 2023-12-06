@@ -20,12 +20,11 @@ header
     width: 100%;
     padding: 20px 70px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items:flex-end;
     z-index: 10000;
 }
-header .logo
-{
+header .logo{
     display: flex;
     color: #fff;
     font-weight: 700;
@@ -37,13 +36,16 @@ header .logo
 }
 header ul
 {
+    animation: 1s curtain cubic-bezier(0.86,0,.07,1) 0.4s both;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+
 }
 header ul li
 {
     list-style: none;
     margin-left: 20px;
+    align-items: center;
 }
 header ul li a
 {
@@ -51,7 +53,7 @@ header ul li a
     position: static;
     padding: 6px 10px;
     color: #fff;
-    border-radius: 20px;
+    border-radius: 18px;
 
 }
 header ul li a:hover,
@@ -188,7 +190,6 @@ body {
 #header {
     width: 100%;
     height: 110vh;
-    background-image: url(images/background.png);
     background-size: cover;
     background-position: center;
 }
@@ -208,53 +209,6 @@ nav {
     width: 190px;
 }
 
-nav ul li {
-    display: inline-block;
-    list-style: none;
-    margin: 10px 20px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    position: relative;
-}
-
-nav ul li a::after {
-    content: '';
-    width: 0;
-    height: 3px;
-    background: #ff004f;
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    transition: 0.5s;
-}
-
-nav ul li a:hover::after {
-    width: 100%;
-}
-
-.header-text {
-    margin-top: 25%;
-    font-size: 30px;
-    color: #ffffff;
-    text-shadow: 0 0 3px #000000;
-}
-
-.header-text h1 {
-    font-size: 60px;
-    margin-top: 20px;
-}
-
-.header-text h1 span {
-    color: #ff004f;
-}
-
-.header-link {
-    text-shadow: 0 0 3px #000000;
-}
 /* ----------ABOUT---------- */
 #about {
     padding: 80px 0px;
@@ -557,94 +511,8 @@ nav .fas {
     display: none;
 }
 
-/* ----------CSS FOR SMALL SCREEN---------- */
-@media only screen and (max-width: 600px) {
-    #header {
-        background-image: url(images/phone-background.png);
-    }
 
-    .header-text {
-        margin-top: 100%;
-        font-size: 16px;
-    }
 
-    .header-text h1 {
-        font-size: 30px;
-    }
-
-    nav .fas {
-        display: block;
-        font-size: 25px;
-    }
-
-    nav ul {
-        background: #b54768;
-        position: fixed;
-        top: 0;
-        width: 200;
-        right: 0;
-        height: 100vh;
-        padding-top: 50px;
-    }
-
-    nav ul li {
-        display: block;
-        margin: 25px;
-    }
-
-}
-
-/* ----------CSS FOR SMALL SCREEN---------- */
-@media only screen and (max-width: 600px) {
-
-    /* Adjust the header image and text size for small screens */
-    #header {
-        background-image: url(images/phone-background.png);
-    }
-
-    .header-text {
-        margin-top: 100%;
-        font-size: 16px;
-    }
-
-    .header-text h1 {
-        font-size: 30px;
-    }
-
-    /* Show the navigation menu on small screens */
-    nav ul {
-        display: none;
-    }
-
-    nav .fas {
-        display: block;
-        font-size: 25px;
-    }
-
-    nav ul {
-        background: #b54768;
-        position: fixed;
-        top: 0;
-        width: 200px;
-        /* Increased the width to accommodate the menu items */
-        right: 0;
-        height: 100vh;
-        padding-top: 50px;
-        transform: translateX(200px);
-        /* Off-canvas menu, initially hidden */
-        transition: transform 0.3s ease-in-out;
-    }
-
-    nav ul.show {
-        transform: translateX(0);
-        /* Show the menu when 'show' class is applied */
-    }
-
-    nav ul li {
-        display: block;
-        margin: 25px;
-    }
-}
 
 
 
@@ -670,8 +538,12 @@ ul {
   list-style: none;
   width: min(60rem, 90%);
   margin-inline: auto;
+    
+  
 }
 
+  
+  
 /* line */
 ul::before {
   content: "";
@@ -679,6 +551,7 @@ ul::before {
   grid-row: 1 / span 20;
   background: rgb(225, 225, 225);
   border-radius: calc(var(--line-w) / 2);
+  
 }
 
 /* columns*/
@@ -690,11 +563,13 @@ ul li:not(:last-child) {
 
 /* card */
 ul li {
+    
   grid-column: 2;
   --inlineP: 1.5rem;
   margin-inline: var(--inlineP);
   grid-row: span 2;
   display: grid;
+  
   grid-template-rows: min-content min-content min-content;
 }
 
@@ -819,6 +694,15 @@ ul li .descr::before {
     border-radius: 0 calc(var(--dateH) / 2) calc(var(--dateH) / 2) 0;
   }
 }
+@keyframes curtain {
+    0% {
+      grid-gap: 50vw; 
+    }
+    
+    100% {
+      grid-gap: 1vm;
+    }
+  }
 
 .credits {
   margin-top: 1rem;
@@ -827,7 +711,6 @@ ul li .descr::before {
 .credits a {
   color: var(--color);
 }
-
 
 
 
